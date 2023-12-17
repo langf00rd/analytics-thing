@@ -12,7 +12,7 @@
   },
   "scripts": {
     "dev": "concurrently 'pnpm start' 'pnpm start:example'",
-    "start": "tsdx watch",
+    "start": "tsdx build && tsdx watch",
     "start:example": "tsc example/index.ts --watch",
     "build": "tsdx build",
     "test": "tsdx test",

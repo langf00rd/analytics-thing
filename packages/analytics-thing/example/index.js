@@ -42,16 +42,21 @@ var analytics = new index_1.AnalyticsThing({ token: 'SOME-TOKEN-HERE' });
     var trackResponse;
     return __generator(this, function (_a) {
         switch (_a.label) {
-            case 0: return [4 /*yield*/, (0, index_1.track)({
-                    client: analytics,
-                    event: 'page view',
-                    description: 'some description of event',
-                    channel: 'channel123',
-                    metadata: { duration: 20, something: 'another thing' },
+            case 0: return [4 /*yield*/, analytics.track({
+                    event: 'user signed in',
+                    project: 'project 69',
+                    description: 'this is a description',
+                    channel: 'another channel',
+                    metadata: {
+                        view_duration: '300ms',
+                        something: 'anotherthing',
+                    },
                 })];
             case 1:
                 trackResponse = _a.sent();
+                console.time();
                 console.log({ trackResponse: trackResponse });
+                console.timeEnd();
                 return [2 /*return*/];
         }
     });
