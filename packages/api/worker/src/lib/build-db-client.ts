@@ -1,4 +1,4 @@
-import { Env } from '../interface';
+import { Env } from './interface';
 import { Client as LibsqlClient, createClient } from '@libsql/client/web';
 
 export function buildLibSQLClient(env: Env): LibsqlClient {
