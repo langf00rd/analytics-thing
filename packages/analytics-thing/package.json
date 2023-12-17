@@ -1,0 +1,59 @@
+{
+  "version": "0.1.0",
+  "license": "MIT",
+  "main": "dist/index.js",
+  "typings": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "src"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "dev": "concurrently 'pnpm start' 'pnpm start:example'",
+    "start": "tsdx watch",
+    "start:example": "tsc example/index.ts --watch",
+    "build": "tsdx build",
+    "test": "tsdx test",
+    "size": "size-limit",
+    "analyze": "size-limit --why"
+  },
+  "prettier": {
+    "printWidth": 80,
+    "semi": true,
+    "singleQuote": true,
+    "trailingComma": "es5"
+  },
+  "name": "@repo/analytics-thing",
+  "author": "langford",
+  "module": "dist/analytics-thing.esm.js",
+  "size-limit": [
+    {
+      "path": "dist/analytics-thing.cjs.production.min.js",
+      "limit": "10 KB"
+    },
+    {
+      "path": "dist/analytics-thing.esm.js",
+      "limit": "10 KB"
+    }
+  ],
+  "devDependencies": {
+    "@size-limit/preset-small-lib": "^11.0.1",
+    "@types/uuid": "^9.0.7",
+    "drizzle-kit": "^0.20.6",
+    "husky": "^8.0.3",
+    "size-limit": "^11.0.1",
+    "tsdx": "^0.14.1",
+    "tslib": "^2.6.2",
+    "typescript": "^5.3.3"
+  },
+  "dependencies": {
+    "@libsql/client": "^0.4.0-pre.5",
+    "@typescript-eslint/eslint-plugin": "^6.14.0",
+    "@typescript-eslint/parser": "^6.14.0",
+    "concurrently": "^8.2.2",
+    "drizzle-orm": "^0.29.1",
+    "uuid": "^9.0.1"
+  }
+}

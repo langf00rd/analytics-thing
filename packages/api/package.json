@@ -1,0 +1,13 @@
+{
+   "name": "@repo/api",
+   "scripts": {
+      "dev": "cd worker && pnpm run dev",
+      "lint": "cd worker && pnpm run lint"
+   },
+   "devDependencies": {
+      "@repo/eslint-config": "workspace:*",
+      "@repo/typescript-config": "workspace:*",
+      "@types/eslint": "^8.44.7",
+      "eslint": "^8.53.0"
+   }
+}

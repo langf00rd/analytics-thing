@@ -1,0 +1,35 @@
+name: ci
+
+on: [push]
+
+jobs:
+   build:
+      name: lint, format, build
+      timeout-minutes: 15
+      runs-on: ubuntu-latest
+
+      steps:
+         - name: check out code
+           uses: actions/checkout@v3
+
+         - uses: pnpm/action-setup@v2.0.1
+           with:
+              version: 6.32.2
+
+         - name: setup node.js environment
+           uses: actions/setup-node@v3
+           with:
+              node-version: 18
+              cache: "pnpm"
+
+         - name: install deps
+           run: pnpm install
+
+         - name: format code
+           run: pnpm run format
+
+         - name: run lint
+           run: pnpm run lint
+
+         - name: run build
+           run: pnpm run build
