@@ -1,13 +1,16 @@
-import { IRequest } from 'itty-router';
-import { IngestProps } from '../interface';
+import { IngestProps } from '../../interface';
 import { eventIngestSchema } from '../schema';
 import formatString from '../utils/format-string';
 import { v4 as uuidv4 } from 'uuid';
 import { Client } from '@libsql/client/web';
-
-export default async function createEvent(request: IRequest, client: Client) {
+/**
+ * ingests an event into the database
+ * @param body - request body
+ * @param client - LibSQL client
+ * @returns Response
+ */
+export default async function ingest(body: IngestProps, client: Client) {
 	try {
-		const body = (await request.json()) as IngestProps;
 		const parsedBodyResult = eventIngestSchema.safeParse(body);
 
 		if (!parsedBodyResult.success) {

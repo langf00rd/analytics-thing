@@ -1,4 +1,4 @@
-import { Env } from './lib/interface';
+import { Env } from './interface';
 import { routeBuilder } from './router';
 
 export default {
